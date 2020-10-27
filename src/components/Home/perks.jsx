@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import styled from 'styled-components'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import Container from "../Container"
-import { colors } from "../config/colors"
+import Container from '../Container'
+import { colors } from '../config/colors'
 
 const StyledPerks = styled.div`
   background: ${({ colors }) => colors.blue};
@@ -31,6 +31,7 @@ const Perks = () => {
         edges {
           node {
             title
+            id
           }
         }
       }
@@ -41,9 +42,9 @@ const Perks = () => {
       <Container>
         <Wrapper>
           {data.allWordpressWpPerks.edges.map(edge => (
-            <Perk>
-              <i class="fab fa-connectdevelop" />
-              <i class="fas fa-bars" />
+            <Perk key={edge.node.id}>
+              <i className="fab fa-connectdevelop" />
+              <i className="fas fa-bars" />
               {edge.node.title}
             </Perk>
           ))}

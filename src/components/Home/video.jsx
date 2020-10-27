@@ -1,9 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
-import Container from "../Container"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Container from '../Container'
 
-import { colors } from "../config/colors"
+import { colors } from '../config/colors'
 
 const VideoWrapper = styled.div`
   position: relative;
@@ -18,7 +18,6 @@ const Content = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  wdith: 60%;
   transform: translate(-50%, -50%);
   color: ${({ colors }) => colors.white};
   padding: 1rem;
@@ -69,12 +68,11 @@ const Video = () => {
           poster="images/stockholm.png"
           loop
           muted
-          autoplay
+          autoPlay
           playsInline
-          preload
         >
-          <source src="videos/stockholm3.mp4" muted autoplay />
-          <source src="videos/stockholm3.webm" muted autoplay />
+          <source src="videos/stockholm3.mp4" muted autoPlay />
+          <source src="videos/stockholm3.webm" muted autoPlay />
           I'm sorry; your browser doesn't support HTML5 video.
         </StyledVideo>
         <Container>

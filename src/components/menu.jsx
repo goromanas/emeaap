@@ -1,13 +1,9 @@
-import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import React from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import { colors } from "./config/colors"
-import Container from "./Container"
-
-const StyledContainer = styled(Container)`
-  margin: 0;
-`
+import { colors } from './config/colors'
+import Container from './Container'
 
 const StyledMenu = styled.div`
   background-color: ${({ colors }) => colors.grey};
@@ -36,6 +32,7 @@ const Menu = () => {
             items {
               title
               url
+              object_id
             }
           }
         }
@@ -49,7 +46,7 @@ const Menu = () => {
         <MenuContent>
           {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
             item => (
-              <MenuItem>
+              <MenuItem key={item.object_id}>
                 <Link to={item.url}>{item.title}</Link>
               </MenuItem>
             )
