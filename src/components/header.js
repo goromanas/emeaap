@@ -1,9 +1,10 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
-import Menu from "./menu"
-import Container from "./Container"
-import Logo from "./Logo"
+import React from 'react'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+
+import Menu from './menu'
+import Container from './Container'
+import Logo from './Logo'
 
 const Header = ({ siteTitle }) => {
   return (

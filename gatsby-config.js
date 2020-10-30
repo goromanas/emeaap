@@ -1,17 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby WordPress Starter`,
+    title: `EMEA AP`,
     description: `Kick off your next, great Gatsby project with this WordPress starter.`,
-    author: `@tomphill`,
+    author: `@romanas`,
   },
   plugins: [
-    {
-      resolve: `@ccalamos/gatsby-source-googlemaps-static`,
-      options: {
-        key: `AIzaSyC0qI3QnT_nLmJvpSeSrkSVWxQKW8DxyyQ`,
-        center: `VILNIUS, LITHUANIA`,
-      },
-    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {

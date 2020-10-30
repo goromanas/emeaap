@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons'
 
 import Container from '../Container'
 import { colors } from '../config/colors'
@@ -16,12 +19,20 @@ const Wrapper = styled.div`
 `
 
 const Perk = styled.div`
-  padding: 5rem;
-  margin: 2rem;
+  padding: 5rem 0;
   font-size: 2rem;
-  display: flex;
-  align-items: center;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > p {
+    text-align: center;
+  }
+`
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  margin: 4rem 0;
 `
 
 const Perks = () => {
@@ -41,11 +52,13 @@ const Perks = () => {
     <StyledPerks colors={colors}>
       <Container>
         <Wrapper>
-          {data.allWordpressWpPerks.edges.map(edge => (
+          {data.allWordpressWpPerks.edges.map((edge, index) => (
             <Perk key={edge.node.id}>
-              <i className="fab fa-connectdevelop" />
-              <i className="fas fa-bars" />
-              {edge.node.title}
+              <StyledFontAwesomeIcon
+                icon={(index + 1) % 2 === 0 ? faConnectdevelop : faBars}
+                size="2x"
+              />
+              <p>{edge.node.title}</p>
             </Perk>
           ))}
         </Wrapper>

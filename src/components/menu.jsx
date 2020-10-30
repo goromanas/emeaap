@@ -8,6 +8,19 @@ import Container from './Container'
 const StyledMenu = styled.div`
   background-color: ${({ colors }) => colors.grey};
   height: 56px;
+
+  a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &.active {
+    color: #fff;
+  }
 `
 
 const MenuContent = styled.div`
