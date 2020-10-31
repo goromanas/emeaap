@@ -6,12 +6,17 @@
  */
 
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Container } from 'react-bootstrap'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './Footer/footer'
+
+const Container = styled.div`
+  min-height: 100vh;
+  min-width: 100vh;
+`
 // import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -24,7 +29,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <Container fluid>
+    <Container>
       <Header siteTitle={data.wordpressSiteMetadata.name} />
       <div>
         <main>{children}</main>

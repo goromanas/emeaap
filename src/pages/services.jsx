@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons'
-import Zoom from 'react-reveal/zoom'
 
 import Layout from '../components/layout'
 import { colors } from '../components/config/colors'
@@ -76,13 +75,11 @@ const Services = () => {
       </Hero>
       <Perks colors={colors}>
         {perks.map((perk, index) => (
-          <Zoom ssrFadeout>
-            <Perk
-              title={perk.node.title}
-              key={perk.node.id}
-              icon={(index + 1) % 2 === 0 ? faConnectdevelop : faBars}
-            />
-          </Zoom>
+          <Perk
+            title={perk.node.title}
+            key={perk.node.id}
+            icon={(index + 1) % 2 === 0 ? faConnectdevelop : faBars}
+          />
         ))}
       </Perks>
     </Layout>
