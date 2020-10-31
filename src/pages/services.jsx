@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import Layout from '../components/layout'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons'
+import Zoom from 'react-reveal/zoom'
 
+import Layout from '../components/layout'
 import { colors } from '../components/config/colors'
 import Perk from '../components/Services/Perk'
 
@@ -18,10 +21,11 @@ const Hero = styled.div`
 const HeroContent = styled.div`
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%);
   color: ${({ colors }) => colors.white};
-  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  /* background: rgba(0, 0, 0, 0.2); */
 `
 
 const Perks = styled.div`
@@ -30,6 +34,15 @@ const Perks = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1));
 `
 const Services = () => {
   const data = useStaticQuery(graphql`
@@ -59,10 +72,17 @@ const Services = () => {
           colors={colors}
           dangerouslySetInnerHTML={{ __html: hero[0].node.content || '' }}
         />
+        <Overlay />
       </Hero>
       <Perks colors={colors}>
-        {perks.map(perk => (
-          <Perk title={perk.node.title} key={perk.node.id} />
+        {perks.map((perk, index) => (
+          <Zoom ssrFadeout>
+            <Perk
+              title={perk.node.title}
+              key={perk.node.id}
+              icon={(index + 1) % 2 === 0 ? faConnectdevelop : faBars}
+            />
+          </Zoom>
         ))}
       </Perks>
     </Layout>

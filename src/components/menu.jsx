@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link as UnstyledLink, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { colors } from './config/colors'
 import Container from './Container'
+import Social from './Social/Social'
 
 const StyledMenu = styled.div`
   background-color: ${({ colors }) => colors.grey};
@@ -28,10 +29,21 @@ const MenuContent = styled.div`
   flex-direction: row;
   align-items: center;
   height: 56px;
+  justify-content: space-between;
 `
 
 const MenuItem = styled.div`
   padding: 0 0.4rem;
+`
+
+const MenuRow = styled.div`
+  display: flex;
+`
+
+const Link = styled(UnstyledLink)`
+  &.active {
+    color: ${({ colors }) => colors.white};
+  }
 `
 
 const Menu = () => {
@@ -57,13 +69,18 @@ const Menu = () => {
     <StyledMenu colors={colors}>
       <Container>
         <MenuContent>
-          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
-            item => (
-              <MenuItem key={item.object_id}>
-                <Link to={item.url}>{item.title}</Link>
-              </MenuItem>
-            )
-          )}
+          <MenuRow>
+            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
+              item => (
+                <MenuItem key={item.object_id}>
+                  <Link to={item.url} activeClassName="active" colors={colors}>
+                    {item.title}
+                  </Link>
+                </MenuItem>
+              )
+            )}
+          </MenuRow>
+          <Social color={colors.white} />
         </MenuContent>
       </Container>
     </StyledMenu>

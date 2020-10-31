@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.wordpressSiteMetadata.name} />
       <div>
         <main>{children}</main>
-        <Footer />
+        <Footer siteTitle={data.wordpressSiteMetadata.name} />
       </div>
     </Container>
   )

@@ -1,44 +1,67 @@
-import React from "react"
-import { useFormik } from "formik"
-import * as Yup from "yup"
-import Axios from "axios"
+import React from 'react'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import Axios from 'axios'
+import styled from 'styled-components'
+
+import { colors } from '../config/colors'
 
 const URL =
-  "http://emeaap.eu/backend/wp-json/contact-form-7/v1/contact-forms/53/feedback"
+  'http://emeaap.eu/backend/wp-json/contact-form-7/v1/contact-forms/41/feedback'
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+`
+const StyledInput = styled.input`
+  outline: none;
+  padding: 0.4rem;
+  border: none;
+  margin-bottom: 2rem;
+`
+const StyledButton = styled.button`
+  background: ${({ colors }) => colors.darkBlue};
+  color: ${({ colors }) => colors.white};
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 0.4rem 0;
+`
 
 const Form = () => {
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
+      firstName: '',
+      lastName: '',
+      email: '',
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
-        .max(15, "Must be 15 characters or less")
-        .required("Required"),
+        .max(15, 'Must be 15 characters or less')
+        .required('Required'),
       lastName: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
+        .max(20, 'Must be 20 characters or less')
+        .required('Required'),
+      email: Yup.string().email('Invalid email address').required('Required'),
     }),
     onSubmit: async values => {
       try {
         const data = new FormData()
-        data.append("your-name", "tomas")
-        data.append("your-email", "tomas@tomas.lt")
-        data.append("your-subject", "Idomu")
+        data.append('your-name', 'tomas')
+        data.append('your-email', 'tomas@tomas.lt')
+        data.append('your-subject', 'Idomu')
         await Axios.post(URL, data)
-        alert("submitted")
+        alert('submitted')
       } catch (e) {
         console.error(`There was an ${e} error.`)
       }
     },
   })
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <StyledForm onSubmit={formik.handleSubmit}>
       <label htmlFor="firstName">First Name</label>
-      <input
+      <StyledInput
         id="firstName"
         name="firstName"
         type="text"
@@ -50,7 +73,7 @@ const Form = () => {
         <div>{formik.errors.firstName}</div>
       ) : null}
       <label htmlFor="lastName">Last Name</label>
-      <input
+      <StyledInput
         id="lastName"
         name="lastName"
         type="text"
@@ -62,7 +85,7 @@ const Form = () => {
         <div>{formik.errors.lastName}</div>
       ) : null}
       <label htmlFor="email">Email Address</label>
-      <input
+      <StyledInput
         id="email"
         name="email"
         type="email"
@@ -73,8 +96,10 @@ const Form = () => {
       {formik.touched.email && formik.errors.email ? (
         <div>{formik.errors.email}</div>
       ) : null}
-      <button type="submit">Submit</button>
-    </form>
+      <StyledButton type="submit" colors={colors}>
+        Submit
+      </StyledButton>
+    </StyledForm>
   )
 }
 

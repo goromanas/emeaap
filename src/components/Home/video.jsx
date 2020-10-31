@@ -21,7 +21,6 @@ const ContentWrapper = styled.div`
   transform: translate(-50%, -50%);
   color: ${({ colors }) => colors.white};
   padding: 1rem;
-  /* background: rgba(0, 0, 0, 0.2); */
   text-align: center;
 `
 

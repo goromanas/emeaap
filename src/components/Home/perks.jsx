@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons'
+import Zoom from 'react-reveal/zoom'
 
 import Container from '../Container'
 import { colors } from '../config/colors'
@@ -53,13 +54,15 @@ const Perks = () => {
       <Container>
         <Wrapper>
           {data.allWordpressWpPerks.edges.map((edge, index) => (
-            <Perk key={edge.node.id}>
-              <StyledFontAwesomeIcon
-                icon={(index + 1) % 2 === 0 ? faConnectdevelop : faBars}
-                size="2x"
-              />
-              <p>{edge.node.title}</p>
-            </Perk>
+            <Zoom ssrFadeout>
+              <Perk key={edge.node.id}>
+                <StyledFontAwesomeIcon
+                  icon={(index + 1) % 2 === 0 ? faConnectdevelop : faBars}
+                  size="2x"
+                />
+                <p>{edge.node.title}</p>
+              </Perk>
+            </Zoom>
           ))}
         </Wrapper>
       </Container>

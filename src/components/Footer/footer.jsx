@@ -1,16 +1,35 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
+import { colors } from '../config/colors'
+import Social from '../Social/Social'
 
 const StyledFooter = styled.footer`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 2rem 0;
   width: 100%;
 `
 
-const Footer = () => (
+const Row = styled.div`
+  margin: 1rem 0;
+
+  > h4 {
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+`
+
+const Footer = ({ siteTitle = '' }) => (
   <StyledFooter>
-    © {new Date().getFullYear()} BY EMEA Associated Partners
+    <Row>
+      <h4>{siteTitle}</h4>
+    </Row>
+    <Row>
+      <Social color={colors.darkGrey} />
+    </Row>
+    <Row>© {new Date().getFullYear()} BY EMEA Associated Partners</Row>
   </StyledFooter>
 )
 

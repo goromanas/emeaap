@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon as UnstyledFontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+
+import { colors } from '../config/colors'
 
 const StyledMember = styled.div`
   margin: 2rem 0;
@@ -39,6 +41,8 @@ const Social = styled.div`
 
 const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`
   margin: 0 0.2rem;
+  font-size: 1.2rem;
+  color: ${({ colors }) => colors.white};
 `
 
 const Member = ({
@@ -53,10 +57,14 @@ const Member = ({
       <StyledImage src={image} alt={name} />
       <Title>{name}</Title>
       <Social>
-        {email && <FontAwesomeIcon icon={faEnvelope} size="1x" />}
+        {email && (
+          <a href={`mailto:${email}`}>
+            <FontAwesomeIcon icon={faEnvelope} colors={colors} />
+          </a>
+        )}
         {linkedin && (
           <a href={linkedin} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} size="1x" />
+            <FontAwesomeIcon icon={faLinkedinIn} colors={colors} />
           </a>
         )}
       </Social>
