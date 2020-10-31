@@ -23,7 +23,7 @@ const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`
 
 function Perk({ title = '', icon = '' }) {
   return (
-    <StyledPerk>
+    <StyledPerk data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
       <Row>
         <FontAwesomeIcon icon={icon} />
       </Row>

@@ -4,17 +4,21 @@ import { Link } from 'gatsby'
 
 import { colors } from '../config/colors'
 
-const StyledButton = styled.span`
-  width: 100px;
-  height: 50px;
+const StyledButton = styled.button`
+  border: none;
   background: ${({ colors }) => colors.blue};
   color: ${({ colors }) => colors.white};
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 40px;
+  transition: all 0.3s ease 0s;
+  outline: none;
 
-  a {
-    text-decoration: none;
+  &:hover {
+    background: ${({ colors }) => colors.darkBlue};
+    transform: translateY(-7px);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
   }
 `
 

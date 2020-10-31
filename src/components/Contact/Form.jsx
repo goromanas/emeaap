@@ -27,17 +27,23 @@ const StyledButton = styled.button`
   box-shadow: none;
   cursor: pointer;
   padding: 0.4rem 0;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    transform: translateY(-7px);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  }
 `
 
 const Form = () => {
   const formik = useFormik({
     initialValues: {
-      firstName: '',
+      name: '',
       lastName: '',
       email: '',
     },
     validationSchema: Yup.object({
-      firstName: Yup.string()
+      name: Yup.string()
         .max(15, 'Must be 15 characters or less')
         .required('Required'),
       lastName: Yup.string()
@@ -60,17 +66,17 @@ const Form = () => {
   })
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
+      <label htmlFor="name">Your name</label>
       <StyledInput
-        id="firstName"
-        name="firstName"
+        id="name"
+        name="name"
         type="text"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        value={formik.values.firstName}
+        value={formik.values.name}
       />
-      {formik.touched.firstName && formik.errors.firstName ? (
-        <div>{formik.errors.firstName}</div>
+      {formik.touched.name && formik.errors.name ? (
+        <div>{formik.errors.name}</div>
       ) : null}
       <label htmlFor="lastName">Last Name</label>
       <StyledInput

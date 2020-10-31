@@ -7,6 +7,7 @@ import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons'
 import Layout from '../components/layout'
 import { colors } from '../components/config/colors'
 import Perk from '../components/Services/Perk'
+import SEO from '../components/seo'
 
 const Hero = styled.div`
   min-height: 300px;
@@ -66,6 +67,7 @@ const Services = () => {
   )
   return (
     <Layout>
+      <SEO title="Services" />
       <Hero>
         <HeroContent
           colors={colors}

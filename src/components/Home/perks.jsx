@@ -7,6 +7,7 @@ import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons'
 
 import Container from '../Container'
 import { colors } from '../config/colors'
+import { media } from '../config/media'
 
 const StyledPerks = styled.div`
   background: ${({ colors }) => colors.blue};
@@ -15,7 +16,11 @@ const StyledPerks = styled.div`
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 100%;
+
+  ${media.md`
+    grid-template-columns: 50% 50%;
+  `}
 `
 
 const Perk = styled.div`
@@ -55,8 +60,9 @@ const Perks = () => {
           {data.allWordpressWpPerks.edges.map((edge, index) => (
             <Perk
               key={edge.node.id}
-              data-sal="slide-up"
-              data-sal-delay="300"
+              data-sal="fade"
+              data-sal-delay="1200"
+              data-sal-duration="2500"
               data-sal-easing="ease"
             >
               <StyledFontAwesomeIcon

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Form from '../components/Contact/Form'
 import Container from '../components/Container'
 import Layout from '../components/layout'
-import Map from '../components/Contact/Map'
+import SEO from '../components/seo'
 
 import { colors } from '../components/config/colors'
 
@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 
 const Contact = () => (
   <Layout>
+    <SEO title="Contact us" />
     <Wrapper colors={colors}>
       <Container>
         <Form />

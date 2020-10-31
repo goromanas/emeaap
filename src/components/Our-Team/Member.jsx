@@ -43,6 +43,12 @@ const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`
   margin: 0 0.2rem;
   font-size: 1.2rem;
   color: ${({ colors }) => colors.white};
+
+  &:hover {
+    color: #c4c71e;
+    transform: translateY(-2px);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  }
 `
 
 const Member = ({

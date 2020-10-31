@@ -5,6 +5,7 @@ import Container from '../components/Container'
 import Layout from '../components/layout'
 
 import { colors } from '../components/config/colors'
+import SEO from '../components/seo'
 
 const Hero = styled.div`
   min-height: 300px;
@@ -58,6 +59,7 @@ const Partners = () => {
   )
   return (
     <Layout>
+      <SEO title="Partners" />
       <Hero background={hero[0].node.featured_media.source_url}>
         <HeroContent
           colors={colors}

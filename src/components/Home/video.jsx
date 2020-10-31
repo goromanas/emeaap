@@ -5,6 +5,7 @@ import Container from '../Container'
 
 import { colors } from '../config/colors'
 import Button from '../Button/Button'
+import { media } from '../config/media'
 
 const VideoWrapper = styled.div`
   position: relative;
@@ -27,6 +28,11 @@ const ContentWrapper = styled.div`
 const Content = styled.div`
   > p {
     margin: 2rem 0;
+    display: none;
+
+    ${media.md`
+      display: block;
+    `}
   }
 
   > h1 {
@@ -69,6 +75,15 @@ const Video = () => {
           }
         }
       }
+      allWordpressWpMedia(
+        filter: { id: { eq: "6b8820d8-364f-5574-8136-f5e6b38e79b8" } }
+      ) {
+        edges {
+          node {
+            source_url
+          }
+        }
+      }
     }
   `)
   return (
@@ -81,8 +96,12 @@ const Video = () => {
           autoPlay
           playsInline
         >
-          <source src="videos/stockholm3.mp4" muted autoPlay />
-          <source src="videos/stockholm3.webm" muted autoPlay />
+          <source
+            src={data.allWordpressWpMedia.edges[0].node.source_url}
+            muted
+            autoPlay
+          />
+          {/* <source src="videos/stockholm3.webm" muted autoPlay /> */}
           I'm sorry; your browser doesn't support HTML5 video.
         </StyledVideo>
         <Overlay />

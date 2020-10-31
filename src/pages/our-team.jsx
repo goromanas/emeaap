@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 
 import { colors } from '../components/config/colors'
 import Member from '../components/Our-Team/Member'
+import SEO from '../components/seo'
 
 const TeamLayout = styled.div`
   background: ${({ colors }) => colors.blue};
@@ -41,6 +42,7 @@ const OurTeam = () => {
   `)
   return (
     <Layout>
+      <SEO title="Our team" />
       <TeamLayout colors={colors}>
         <StyledContainer>
           {data.allWordpressWpOurTeam.edges.map(member => (

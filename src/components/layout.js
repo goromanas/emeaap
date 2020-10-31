@@ -14,8 +14,9 @@ import Header from './header'
 import Footer from './Footer/footer'
 
 const Container = styled.div`
-  min-height: 100vh;
-  min-width: 100vh;
+  padding-top: 1rem;
+  /* min-height: 100vh;
+  min-width: 100vh; */
 `
 // import "./layout.css"
 
