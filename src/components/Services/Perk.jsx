@@ -15,6 +15,7 @@ const Row = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2rem 0;
+  text-align: center;
 `
 
 const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`

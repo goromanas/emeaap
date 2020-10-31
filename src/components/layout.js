@@ -15,6 +15,8 @@ import Footer from './Footer/footer'
 
 const Container = styled.div`
   padding-top: 1rem;
+  overflow: hidden;
+  margin: 0 auto;
   /* min-height: 100vh;
   min-width: 100vh; */
 `

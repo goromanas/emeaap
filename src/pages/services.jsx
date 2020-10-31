@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import { colors } from '../components/config/colors'
 import Perk from '../components/Services/Perk'
 import SEO from '../components/seo'
+import { media } from '../components/config/media'
 
 const Hero = styled.div`
   min-height: 300px;
@@ -17,7 +18,24 @@ const Hero = styled.div`
   background-position: center;
   position: relative;
 `
+const Title = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%);
+  color: ${({ colors }) => colors.white};
+  z-index: 2;
+  display: block;
 
+  > h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+
+  ${media.lg`
+    display: none;
+  `}
+`
 const HeroContent = styled.div`
   position: absolute;
   left: 50%;
@@ -25,7 +43,16 @@ const HeroContent = styled.div`
   transform: translate(-50%);
   color: ${({ colors }) => colors.white};
   z-index: 2;
-  /* background: rgba(0, 0, 0, 0.2); */
+
+  > p {
+    margin-bottom: 1rem;
+    display: none;
+    width: 100%;
+
+    ${media.lg`
+    display: block;
+  `}
+  }
 `
 
 const Perks = styled.div`
@@ -73,6 +100,9 @@ const Services = () => {
           colors={colors}
           dangerouslySetInnerHTML={{ __html: hero[0].node.content || '' }}
         />
+        <Title colors={colors}>
+          <h2>Services</h2>
+        </Title>
         <Overlay />
       </Hero>
       <Perks colors={colors}>

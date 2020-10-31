@@ -33,9 +33,14 @@ const Content = styled.div`
 `
 
 const Text = styled.div`
+  text-align: center;
   > p {
     margin: 2rem;
   }
+`
+
+const Title = styled.h1`
+  text-align: center;
 `
 
 const AboutSection = ({ title = '', content = '', image = '', color = '' }) => {
@@ -43,14 +48,14 @@ const AboutSection = ({ title = '', content = '', image = '', color = '' }) => {
     <Section>
       <ImageWrapper image={image} />
       <Content color={color}>
-        <h1
+        <Title
           data-sal="flip-up"
           data-sal-delay="1200"
           data-sal-duration="2500"
           data-sal-easing="ease"
         >
           {title}
-        </h1>
+        </Title>
         <Text
           dangerouslySetInnerHTML={{ __html: content }}
           data-sal="flip-up"

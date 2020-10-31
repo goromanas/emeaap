@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Container from '../components/Container'
 import Layout from '../components/layout'
 
 import { colors } from '../components/config/colors'
@@ -23,6 +22,10 @@ const HeroContent = styled.div`
   transform: translate(-50%);
   color: ${({ colors }) => colors.white};
   z-index: 2;
+
+  > p {
+    margin-bottom: 1rem;
+  }
   /* background: rgba(0, 0, 0, 0.2); */
 `
 
@@ -54,9 +57,9 @@ const Partners = () => {
   const hero = data.allWordpressWpPartners.edges.filter(
     edge => edge.node.title === 'Main'
   )
-  const partners = data.allWordpressWpPartners.edges.filter(
-    edge => edge.node.title !== 'Main'
-  )
+  // const partners = data.allWordpressWpPartners.edges.filter(
+  //   edge => edge.node.title !== 'Main'
+  // )
   return (
     <Layout>
       <SEO title="Partners" />

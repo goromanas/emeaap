@@ -102,7 +102,7 @@ const Form = () => {
       {formik.touched.email && formik.errors.email ? (
         <div>{formik.errors.email}</div>
       ) : null}
-      <StyledButton type="submit" colors={colors}>
+      <StyledButton type="submit" colors={colors} disabled>
         Submit
       </StyledButton>
     </StyledForm>

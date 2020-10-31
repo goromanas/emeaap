@@ -5,6 +5,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import { colors } from '../config/colors'
+import { media } from '../config/media'
 
 const StyledMember = styled.div`
   margin: 2rem 0;
@@ -15,7 +16,7 @@ const StyledMember = styled.div`
 `
 
 const StyledImage = styled.img`
-  width: 250px;
+  width: 100%;
   max-height: 120px;
   width: auto;
   object-fit: cover;
@@ -33,6 +34,15 @@ const Content = styled.div`
   margin-top: 2rem;
   font-size: 0.9rem;
   text-align: justify;
+
+  > p {
+    line-height: 2rem;
+    margin-bottom: 1rem;
+
+    ${media.md`
+    line-height: 1.6rem;
+  `}
+  }
 `
 
 const Social = styled.div`
@@ -43,9 +53,10 @@ const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`
   margin: 0 0.2rem;
   font-size: 1.2rem;
   color: ${({ colors }) => colors.white};
+  transition: all 0.3s ease 0s;
 
   &:hover {
-    color: #c4c71e;
+    color: ${({ colors }) => colors.accent};
     transform: translateY(-2px);
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
   }

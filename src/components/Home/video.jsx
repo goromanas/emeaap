@@ -9,11 +9,13 @@ import { media } from '../config/media'
 
 const VideoWrapper = styled.div`
   position: relative;
-  height: auto;
+  max-height: 700px;
 `
 
 const StyledVideo = styled.video`
-  max-width: 100%;
+  width: 100%;
+  max-height: 700px;
+  object-fit: cover;
 `
 const ContentWrapper = styled.div`
   position: absolute;
@@ -30,7 +32,7 @@ const Content = styled.div`
     margin: 2rem 0;
     display: none;
 
-    ${media.md`
+    ${media.lg`
       display: block;
     `}
   }
@@ -39,14 +41,22 @@ const Content = styled.div`
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
-    font-size: 4rem;
+    font-size: 1.5rem;
+
+    ${media.md`
+      font-size: 4rem;
+    `}
   }
 
   > h2 {
-    font-size: 2rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
     font-weight: 100;
     font-style: italic;
+
+    ${media.md`
+      font-size: 2rem;
+    `}
   }
 
   > p {

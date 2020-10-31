@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon as UnstyledFontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { icons } from '../config/icons'
+import { colors } from '../config/colors'
 
 const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`
   color: ${({ color }) => color};
@@ -12,17 +13,17 @@ const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`
 
   &:hover {
     /* color: rgba(10, 118, 198, 0.9); */
-    color: #c4c71e;
+    color: ${({ colors }) => colors.accent};
     transform: translateY(-2px);
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
   }
 `
 
-const Social = ({ color = '#fff' }) => (
-  <div>
-    {icons.map(icon => (
-      <a href={icon.link} target="_blank" rel="noreferrer">
-        <FontAwesomeIcon icon={icon.icon} color={color} />
+const Social = ({ color = '#fff', className = '' }) => (
+  <div className={className}>
+    {icons.map((icon, index) => (
+      <a href={icon.link} target="_blank" rel="noreferrer" key={index}>
+        <FontAwesomeIcon icon={icon.icon} color={color} colors={colors} />
       </a>
     ))}
   </div>

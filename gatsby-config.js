@@ -52,6 +52,7 @@ module.exports = {
           '**/our-team',
           '**/services',
           '**/partners',
+          '**/slider',
           '**/perks',
           '**/locations',
           '**/taxonomies',

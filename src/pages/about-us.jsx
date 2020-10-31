@@ -12,6 +12,7 @@ import { colors } from '../components/config/colors'
 
 const StyledContainer = styled(Container)`
   max-width: 100%;
+  padding: 0;
 `
 
 const AboutUs = () => {

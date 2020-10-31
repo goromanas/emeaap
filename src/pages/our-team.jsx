@@ -47,6 +47,7 @@ const OurTeam = () => {
         <StyledContainer>
           {data.allWordpressWpOurTeam.edges.map(member => (
             <Member
+              key={member.node.title}
               name={member.node.title}
               content={member.node.content}
               image={member.node.featured_media.source_url}
