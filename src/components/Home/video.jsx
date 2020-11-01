@@ -7,6 +7,9 @@ import { colors } from '../config/colors'
 import Button from '../Button/Button'
 import { media } from '../config/media'
 
+import Video1 from '../../../static/videos/stockholm3.mp4'
+import Video2 from '../../../static/videos/stockholm3.webm'
+
 const VideoWrapper = styled.div`
   position: relative;
   max-height: 700px;
@@ -107,8 +110,8 @@ const Video = () => {
           autoPlay
           playsInline
         >
-          <source src="../../videos/stockholm3.mp4" muted autoPlay />
-          <source src="../../videos/stockholm3.webm" muted autoPlay />
+          <source src={Video1} muted autoPlay />
+          <source src={Video2} muted autoPlay />
           {/* <source src="videos/stockholm3.webm" muted autoPlay /> */}
           I'm sorry; your browser doesn't support HTML5 video.
         </StyledVideo>
