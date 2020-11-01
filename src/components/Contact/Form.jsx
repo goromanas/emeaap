@@ -35,11 +35,11 @@ const Form = ({ className }) => {
     setCountry(data)
   }
 
-  const script = document.createElement('script')
-  script.src = 'https://www.google.com/recaptcha/api.js'
-  script.async = true
-  script.defer = true
-  document.body.appendChild(script)
+  // const script = document.createElement('script')
+  // script.src = 'https://www.google.com/recaptcha/api.js'
+  // script.async = true
+  // script.defer = true
+  // document.body.appendChild(script)
   const formik = useFormik({
     initialValues: {
       name: '',

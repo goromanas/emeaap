@@ -5,6 +5,17 @@ module.exports = {
     author: `@romanas`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
+        src: 'https://www.google.com/recaptcha/api.js',
+        integrity:
+          'sha384-Nrg+xiw+qRl3grVrxJtWazjeZmUwoSt0FAVsbthlJ5OMpx0G08bqIq3b/v0hPjhB',
+        crossorigin: 'anonymous',
+        onLoad: `() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})`,
+      },
+    },
     `gatsby-plugin-recaptcha`,
     'gatsby-plugin-antd',
     'gatsby-plugin-react-leaflet',

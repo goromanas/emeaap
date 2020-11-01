@@ -50,12 +50,11 @@ const StyledForm = styled(Form)`
     padding-bottom: 0;
   `}
 `
-
 const Contact = () => (
   <Layout>
     <SEO title="Contact us" />
     <Wrapper colors={colors}>
-      <ContactMap />
+      {typeof window !== 'undefined' ? <ContactMap /> : null}
       <Title>
         <h1>Contact us</h1>
       </Title>
