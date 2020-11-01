@@ -18,6 +18,7 @@ const Row = styled.div`
   > h4 {
     font-weight: 500;
     font-size: 1.25rem;
+    color: #000;
   }
 `
 

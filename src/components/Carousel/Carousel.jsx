@@ -2,13 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import Slider from 'react-slick'
+import ReactTooltip from 'react-tooltip'
 
 import '../../../node_modules/slick-carousel/slick/slick.scss'
 import '../../../node_modules/slick-carousel/slick/slick-theme.scss'
 
 const Wrapper = styled.div`
-  height: 55px;
-  padding: 0 50%;
+  height: 75px;
+  max-width: 50%;
+  margin: 0 auto;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
 `
 const Image = styled.img`
   max-height: 50px;
@@ -37,6 +44,7 @@ const Carousel = () => {
         edges {
           node {
             id
+            title
             featured_media {
               localFile {
                 childImageSharp {
@@ -58,7 +66,9 @@ const Carousel = () => {
           <Container key={edge.node.id}>
             <Image
               src={edge.node.featured_media.localFile.childImageSharp.fluid.src}
+              data-tip={edge.node.title}
             />
+            <ReactTooltip />
           </Container>
         ))}
       </Slider>

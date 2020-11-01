@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import styled from 'styled-components'
+import { useStaticQuery, graphql } from 'gatsby'
 
 const StyledLogo = styled.img`
   padding: 0.25rem;
@@ -8,6 +8,7 @@ const StyledLogo = styled.img`
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
+  margin-bottom: 0.5rem;
 `
 
 const Logo = () => {

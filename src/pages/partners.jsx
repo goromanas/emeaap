@@ -5,6 +5,8 @@ import Layout from '../components/layout'
 
 import { colors } from '../components/config/colors'
 import SEO from '../components/seo'
+import Container from '../components/Container'
+import Partner from '../components/Partners/Partner'
 
 const Hero = styled.div`
   min-height: 300px;
@@ -38,17 +40,32 @@ const Overlay = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1));
 `
 
+const StyledContainer = styled(Container)`
+  display: flex;
+  flex-wrap: wrap;
+`
+
 const Partners = () => {
   const data = useStaticQuery(graphql`
     {
       allWordpressWpPartners {
         edges {
           node {
-            title
-            content
-            featured_media {
-              source_url
+            acf {
+              partners_website
             }
+            featured_media {
+              localFile {
+                childImageSharp {
+                  fluid {
+                    src
+                  }
+                }
+              }
+            }
+            content
+            title
+            id
           }
         }
       }
@@ -57,19 +74,40 @@ const Partners = () => {
   const hero = data.allWordpressWpPartners.edges.filter(
     edge => edge.node.title === 'Main'
   )
+
+  const content = data.allWordpressWpPartners.edges.filter(
+    edge => edge.node.title !== 'Main'
+  )
   // const partners = data.allWordpressWpPartners.edges.filter(
   //   edge => edge.node.title !== 'Main'
   // )
   return (
     <Layout>
       <SEO title="Partners" />
-      <Hero background={hero[0].node.featured_media.source_url}>
+      <Hero
+        background={
+          hero[0].node.featured_media.localFile.childImageSharp.fluid.src
+        }
+      >
         <HeroContent
           colors={colors}
           dangerouslySetInnerHTML={{ __html: hero[0].node.content || '' }}
         />
         <Overlay />
       </Hero>
+      <StyledContainer>
+        {content.map(partner => (
+          <Partner
+            key={partner.node.id}
+            title={partner.node.title}
+            image={
+              partner.node.featured_media.localFile.childImageSharp.fluid.src
+            }
+            content={partner.node.content}
+            link={partner.node.acf.partners_website}
+          />
+        ))}
+      </StyledContainer>
     </Layout>
   )
 }

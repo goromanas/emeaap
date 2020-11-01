@@ -10,6 +10,7 @@ import { media } from '../config/media'
 const VideoWrapper = styled.div`
   position: relative;
   max-height: 700px;
+  color: ${({ colors }) => colors.white};
 `
 
 const StyledVideo = styled.video`
@@ -98,7 +99,7 @@ const Video = () => {
   `)
   return (
     <>
-      <VideoWrapper>
+      <VideoWrapper colors={colors}>
         <StyledVideo
           poster="images/stockholm.png"
           loop
@@ -106,11 +107,8 @@ const Video = () => {
           autoPlay
           playsInline
         >
-          <source
-            src={data.allWordpressWpMedia.edges[0].node.source_url}
-            muted
-            autoPlay
-          />
+          <source src="../../videos/stockholm3.mp4" muted autoPlay />
+          <source src="../../videos/stockholm3.webm" muted autoPlay />
           {/* <source src="videos/stockholm3.webm" muted autoPlay /> */}
           I'm sorry; your browser doesn't support HTML5 video.
         </StyledVideo>

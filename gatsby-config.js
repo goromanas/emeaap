@@ -5,6 +5,9 @@ module.exports = {
     author: `@romanas`,
   },
   plugins: [
+    `gatsby-plugin-recaptcha`,
+    'gatsby-plugin-antd',
+    'gatsby-plugin-react-leaflet',
     `gatsby-plugin-scroll-reveal`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
@@ -27,7 +30,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/emea-icon.png`, // This path is relative to the root of the site.
+        icon: `public/images/emea-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -56,7 +59,6 @@ module.exports = {
           '**/perks',
           '**/locations',
           '**/taxonomies',
-          '**/users',
         ],
       },
     },

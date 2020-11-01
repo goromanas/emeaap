@@ -63,12 +63,10 @@ const StyledSocial = styled(Social)`
     display: block;
   `}
 `
+const MobileSocial = styled(Social)``
 
 const StyledHamburger = styled(Hamburger)`
-  display: block;
-  padding-right: 2rem;
-  padding-top: 1.5rem;
-
+  display: flex;
   ${media.md`
     display: none;
   `}
@@ -80,8 +78,8 @@ const MobileContent = styled.div`
   top: 56px;
   left: -1rem;
   width: calc(100% + 2rem);
-  height: 300px;
-  z-index: 5;
+  height: 400px;
+  z-index: 3000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,6 +148,7 @@ const Menu = () => {
                 </MobileItem>
               )
             )}
+            <MobileSocial />
           </MobileContent>
           <StyledSocial color={colors.white} />
         </MenuContent>

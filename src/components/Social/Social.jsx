@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 import { FontAwesomeIcon as UnstyledFontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { icons } from '../config/icons'
@@ -22,9 +23,17 @@ const FontAwesomeIcon = styled(UnstyledFontAwesomeIcon)`
 const Social = ({ color = '#fff', className = '' }) => (
   <div className={className}>
     {icons.map((icon, index) => (
-      <a href={icon.link} target="_blank" rel="noreferrer" key={index}>
-        <FontAwesomeIcon icon={icon.icon} color={color} colors={colors} />
-      </a>
+      <React.Fragment key={index}>
+        <a
+          href={icon.link}
+          target="_blank"
+          rel="noreferrer"
+          data-tip={icon.tooltip}
+        >
+          <FontAwesomeIcon icon={icon.icon} color={color} colors={colors} />
+        </a>
+        <ReactTooltip />
+      </React.Fragment>
     ))}
   </div>
 )
