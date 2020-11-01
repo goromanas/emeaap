@@ -9,13 +9,8 @@ import '../../../node_modules/slick-carousel/slick/slick-theme.scss'
 
 const Wrapper = styled.div`
   height: 75px;
-  max-width: 50%;
+  max-width: 75%;
   margin: 0 auto;
-  text-align: justify;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
 `
 const Image = styled.img`
   max-height: 50px;
@@ -24,11 +19,11 @@ const Image = styled.img`
 
 const Container = styled.div`
   outline: none;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 `
 
-const Carousel = () => {
+const Carousel = ({ className }) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -60,7 +55,7 @@ const Carousel = () => {
     }
   `)
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <Slider {...settings}>
         {data.allWordpressWpSlider.edges.map(edge => (
           <Container key={edge.node.id}>

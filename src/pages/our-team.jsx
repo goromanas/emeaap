@@ -29,7 +29,13 @@ const OurTeam = () => {
             content
             title
             featured_media {
-              source_url
+              localFile {
+                childImageSharp {
+                  fluid {
+                    src
+                  }
+                }
+              }
             }
             acf {
               email
@@ -50,7 +56,9 @@ const OurTeam = () => {
               key={member.node.title}
               name={member.node.title}
               content={member.node.content}
-              image={member.node.featured_media.source_url}
+              image={
+                member.node.featured_media.localFile.childImageSharp.fluid.src
+              }
               email={member.node.acf.email}
               linkedin={member.node.acf.linkedin}
             />

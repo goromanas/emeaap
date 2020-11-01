@@ -7,6 +7,7 @@ import { colors } from '../components/config/colors'
 import SEO from '../components/seo'
 import Container from '../components/Container'
 import Partner from '../components/Partners/Partner'
+import HeroImage from '../../static/images/city2.jpg'
 
 const Hero = styled.div`
   min-height: 300px;
@@ -84,11 +85,7 @@ const Partners = () => {
   return (
     <Layout>
       <SEO title="Partners" />
-      <Hero
-        background={
-          hero[0].node.featured_media.localFile.childImageSharp.fluid.src
-        }
-      >
+      <Hero background={HeroImage}>
         <HeroContent
           colors={colors}
           dangerouslySetInnerHTML={{ __html: hero[0].node.content || '' }}
